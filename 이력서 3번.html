@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>이력서</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        td input[type="checkbox"] {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .input-field {
+            width: 100%;
+            border: none;
+            background: transparent;
+            outline: none;
+        }
+
+        /* 이하 생략 */
+    </style>
+</head>
+
+<body>
+    <table border="1" width="800">
+        <tr>
+            <th rowspan="4" width="300px" height="400px" id="images">
+                <div class="input-wrapper">
+                    <input type="file" id="upload" accept="image/*" onchange="previewImage(event)">
+                    <img id="preview" src="#" alt="Preview">
+                    <script>
+                        function previewImage(event) {
+                            var input = event.target;
+                            var reader = new FileReader();
+    
+                            reader.onload = function () {
+                                var img = document.getElementById('preview');
+                                img.src = reader.result;
+                                input.style.display = 'none';
+                            }
+    
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    </script>
+                </div>
+            </th>
+            <th colspan="9">
+                <font size="5">이 력 서</font>
+            </th>
+        </tr>
+        <tr>
+            <th rowspan="2" width="85" bgcolor="D5D5D5">성 명</th>
+    
+            <th colspan="2" bgcolor="D5D5D5">한 글</th>
+            <td width="90"></td>
+            <th bgcolor="D5D5D0">생 년 월 일</th>
+            <th colspan="2" width="80" bgcolor="D5D5D5">E-mail</th>
+        </tr>
+        <tr>
+            <th colspan="2" bgcolor="D5D5D5"> 한 문</th>
+            <td colspan="2"><input class="input-field" type="text"></td>
+            <td></td>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <th colspan="2" width="50" bgcolor="D5D5D5">연 락 처</th>
+            <td colspan="2"><input class="input-field" type="text"></td>
+            <th colspan="2" width="50" bgcolor="D5D5D5">긴급 연락처(핸드폰)</th>
+            <td colspan="2"><input class="input-field" type="text"></td>
+        </tr>
+    
+        <!-- 이하 생략 -->
+    </table>
+    
+</body>
+
+</html>
